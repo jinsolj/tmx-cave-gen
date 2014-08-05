@@ -1,6 +1,6 @@
 /* Cellular Automata Map Generator
 	
-	Original code by Jin Sol Jung
+	Original code by Jin Sol Jung (jinsol.jung@gmail.com)
 
 	This source code is provided 'as-is', without any express or implied
 	warranty. In no event will the author be held liable for any damages	
