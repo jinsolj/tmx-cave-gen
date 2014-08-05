@@ -34,3 +34,19 @@ Icon
 # Files that might appear on external disk
 .Spotlight-V100
 .Trashes
+
+Debug/base64.obj
+Debug/celAutoMap.obj
+Debug/Main.obj
+Debug/mapSaver.obj
+Debug/tinyxml2.obj
+Debug/TMX Cell.3F31AEE6.tlog/cl.command.1.tlog
+Debug/TMX Cell.3F31AEE6.tlog/CL.read.1.tlog
+Debug/TMX Cell.3F31AEE6.tlog/CL.write.1.tlog
+Debug/TMX Cell.3F31AEE6.tlog/link.command.1.tlog
+Debug/TMX Cell.3F31AEE6.tlog/link.read.1.tlog
+Debug/TMX Cell.3F31AEE6.tlog/link.write.1.tlog
+Debug/TMX Cell.3F31AEE6.tlog/TMX Cellular Automata Map Generator.lastbuildstate
+Debug/TMX Cellular Automata Map Generator.log
+Debug/vc120.idb
+Debug/vc120.pdb
