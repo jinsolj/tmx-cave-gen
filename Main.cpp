@@ -14,6 +14,17 @@ const int y = 20;
 //Number of map layers
 const int num = 6;
 
+//Dimensions of each tile in pixels.
+const int tileWidth = 32;
+const int tileHeight = 32;
+
+//Dimensions of the tileset image in pixels.
+const int tilesetWidth = 416;
+const int tilesetHeight = 32;
+
+//Name of the tileset image.
+const std::string tilesetName = "tileset2.png";
+
 using namespace std;
 
 int main(int argc, char* argv[]) {
@@ -38,7 +49,8 @@ int main(int argc, char* argv[]) {
 	}
 
 	//save map
-	saveMap("tileset2.png", mapLayers, x, y, 32, 32, 416, 32, num);
+	saveMap(tilesetName, mapLayers, x, y, tileWidth, tileHeight, tilesetWidth,
+		tilesetHeight, num);
 
 	//clean up memory
 	while (!randomMaps.empty()) {
