@@ -7,7 +7,8 @@ This utility is designed to generate maps to be used in Tiled Map Editor:
 https://github.com/bjorn/tiled/wiki
 
 The tileset image must have tiles in this order:
-  FLOOR,
+	
+	FLOOR,
   
 	TOP_LEFT_WALL,
 	TOP_CENTER_WALL,
