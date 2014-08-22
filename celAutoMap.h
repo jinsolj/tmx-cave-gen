@@ -35,26 +35,35 @@
 
 const int DEFAULT_WALL_CHANCE = 45;
 const int DEFAULT_NUM_ITERATIONS = 40;
+const int NUM_MAP_LAYERS = 2;
 
 class celAutoMap {
 public:
-	celAutoMap(int width, int height, int wallChance = DEFAULT_WALL_CHANCE, 
-				int numIterations = DEFAULT_NUM_ITERATIONS) {
+	celAutoMap(int width, int height, int wallChance = DEFAULT_WALL_CHANCE,
+		int numIterations = DEFAULT_NUM_ITERATIONS) {
 		mWidth = width;
 		mHeight = height;
 		mWallChance = wallChance;
 		mNumIterations = numIterations;
 
+
+		mMap = new int**[NUM_MAP_LAYERS];
+
 		//dynamically allocate 2d array of ints for map
-		mMap = new int*[mHeight];
-		for (int i = 0; i < mHeight; i++) {
-			mMap[i] = new int[mWidth];
+		for (int j = 0; j < NUM_MAP_LAYERS; ++j) {
+			mMap[j] = new int*[mHeight];
+			for (int i = 0; i < mHeight; i++) {
+				mMap[j][i] = new int[mWidth];
+			}
 		}
 	}
 
 	~celAutoMap() {
-		for (int i = 0; i < mHeight; i++) {
-			delete[] mMap[i];
+		for (int j = 0; j < NUM_MAP_LAYERS; ++j) {
+			for (int i = 0; i < mHeight; i++) {
+				delete[] mMap[j][i];
+			}
+			delete mMap[j];
 		}
 		delete mMap;
 	}
@@ -66,7 +75,10 @@ public:
 	//modifies mMap values so that specific ints map to specific wall types
 	void setWallIDs();
 
-	int** getMap() { return mMap; }
+	//adds second layer that gives depth to scene.
+	void extrudeGeography(int wallHeight);
+
+	int*** getMap() { return mMap; }
 	int getWidth() { return mWidth; }
 	int getHeight() { return mHeight; }
 
@@ -81,7 +93,7 @@ private:
 	void initMap();
 
 	//2d array of ints: 0 = floor, anything else is wall
-	int** mMap;
+	int*** mMap;
 
 	//width and height of map
 	//wall chance = %chance of a random cell being a wall during initMap()
